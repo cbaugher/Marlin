@@ -654,7 +654,6 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
 
       // Bottom buttons
       #if ENABLED(TOUCH_BUTTONS)
-
         setWindow(u8g, dev, BUTTOND_X_LO, BUTTON_Y_LO,  BUTTOND_X_HI, BUTTON_Y_HI);
         drawImage(buttonD, u8g, dev, 32, 20, TFT_BTCANCEL_COLOR);
 
