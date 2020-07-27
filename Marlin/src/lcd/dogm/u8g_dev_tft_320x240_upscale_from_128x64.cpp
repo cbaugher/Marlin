@@ -615,7 +615,7 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
           setWindow = setWindow_ili9328;
           break;
         case 0x9341:   // ILI9341
-        case 0x8066:   // Anycubic / TronXY TFTs (480x320)      
+        case 0x8066:   // Anycubic / TronXY TFTs (480x320)
           #ifdef LCD_USE_DMA_FSMC
             writeEscSequence(ili9341_init);
           #else
@@ -652,7 +652,7 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
           u8g_WriteSequence(u8g, dev, 160, (uint8_t *)buffer);
       #endif
 
-      // bottom buttons
+      // Bottom buttons
       #if ENABLED(TOUCH_BUTTONS)
 
         setWindow(u8g, dev, BUTTOND_X_LO, BUTTON_Y_LO,  BUTTOND_X_HI, BUTTON_Y_HI);
