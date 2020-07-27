@@ -548,7 +548,6 @@ static const uint16_t ili9341_init[] = {
   void drawImage(const uint8_t *data, u8g_t *u8g, u8g_dev_t *dev, uint16_t length, uint16_t height, uint16_t color) {
     uint16_t buffer[BUTTON_SIZE_X * sq(FSMC_UPSCALE)];
 
-    //NOTE: the buffer are sized for max 32 lenght! If you need draw bigger things with this function, we need increase the buffer
     if (length > BUTTON_SIZE_X) return;
 
     for (uint16_t i = 0; i < height; i++) {
