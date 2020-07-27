@@ -615,7 +615,7 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
           setWindow = setWindow_ili9328;
           break;
         case 0x9341:   // ILI9341
-        case 0x8066:   // ILI9341 Anycubic / TronXY TFTs      
+        case 0x8066:   // Anycubic / TronXY TFTs (480x320)      
           #ifdef LCD_USE_DMA_FSMC
             writeEscSequence(ili9341_init);
           #else
@@ -652,17 +652,8 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
           u8g_WriteSequence(u8g, dev, 160, (uint8_t *)buffer);
       #endif
 
-      // bottom line and buttons
+      // bottom buttons
       #if ENABLED(TOUCH_BUTTONS)
-
-        setWindow(u8g, dev, BUTTOND_X_LO - 4, BUTTON_Y_LO - 5, BUTTONC_X_HI + BUFSIZE + 4, BUTTON_Y_LO - 4);
-        #ifdef LCD_USE_DMA_FSMC
-          LCD_IO_WriteMultiple(TFT_DISABLED_COLOR, 600 / 2 * FSMC_UPSCALE);
-        #else
-          memset2(buffer, TFT_DISABLED_COLOR, 150);
-          for (uint8_t i = 8; i--;)
-            u8g_WriteSequence(u8g, dev, 150, (uint8_t *)buffer);
-        #endif
 
         setWindow(u8g, dev, BUTTOND_X_LO, BUTTON_Y_LO,  BUTTOND_X_HI, BUTTON_Y_HI);
         drawImage(buttonD, u8g, dev, 32, 20, TFT_BTCANCEL_COLOR);
